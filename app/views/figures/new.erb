@@ -9,14 +9,16 @@
     <input type="checkbox" name="figure[title_ids][]" id="title_<%=title.id%>" value="<%=title.id%>"><%=title.name%>
   <%end%><br></br>
 
-
   <label for="figure[landmark_ids][]">Landmarks:</label>
-  <input type="text" name="figure[landmark_ids][]" id="figure[landmark_ids][]"><br></br>
-  <label for="landmark[name]">Landmark Name:</label>
-  <input type="text" name="landmark[name]" id="landmark[name]"><br></br>
+  <%Landmark.all.each do |landmark|%>
+    <input type="checkbox" name="figure[landmark_ids][]" id="figure[landmark_ids][]" value="<%=landmark.id%>"><%=landmark.name%><br></br>
+  <%end%>
 
+  <label for="landmark[name]">Create a new Landmark:</label>
+  <input type="text" name="landmark[name]" id="landmark[name]"><br></br>
 
   <label for="title[name]">Title name:</label>
   <input type="text" name="title[name]" id="title[name]"><br></br>
+
   <input type="submit" id="Create New Figure">
 </form>
