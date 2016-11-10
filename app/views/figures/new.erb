@@ -1,6 +1,22 @@
-<!-- expect(page.body).to include('<form')
-expect(page.body).to include('figure[name]')
-expect(page.body).to include('figure[title_ids][]')
-expect(page.body).to include('figure[landmark_ids][]')
-expect(page.body).to include('landmark[name]')
-expect(page.body).to include('title[name]') -->
+
+
+<form action="/figures" method="post">
+  <label for="figure[name]">Name:</label>
+  <input type="text" name="figure[name]" id="figure_name"><br></br>
+
+  <label>Titles</label>
+  <%Title.all.each do |title|%>
+    <input type="checkbox" name="figure[title_ids][]" id="title_<%=title.id%>" value="<%=title.id%>"><%=title.name%>
+  <%end%><br></br>
+
+
+  <label for="figure[landmark_ids][]">Landmarks:</label>
+  <input type="text" name="figure[landmark_ids][]" id="figure[landmark_ids][]"><br></br>
+  <label for="landmark[name]">Landmark Name:</label>
+  <input type="text" name="landmark[name]" id="landmark[name]"><br></br>
+
+
+  <label for="title[name]">Title name:</label>
+  <input type="text" name="title[name]" id="title[name]"><br></br>
+  <input type="submit" id="Create New Figure">
+</form>
